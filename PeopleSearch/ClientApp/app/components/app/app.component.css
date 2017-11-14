@@ -4,3 +4,9 @@
         padding-top: 50px;
     }
 }
+
+footer {
+    margin-top: 20px;
+    color: gray;
+    text-align: center;
+}

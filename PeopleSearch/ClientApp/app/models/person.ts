@@ -1,0 +1,52 @@
+import * as md5 from 'md5';
+
+export class Person {
+    avatarUrl: string;
+    id?: number;
+    gender?: string;
+    nameset?: string;
+    title?: string;
+    givenName: string;
+    middleInitial?: string;
+    surname: string;
+    streetAddress?: string;
+    city?: string;
+    state?: string;
+    stateFull?: string;
+    zipCode?: string;
+    country?: string;
+    countryFull?: string;
+    emailAddress: string;
+    username?: string;
+    password?: string;
+    browserUserAgent?: string;
+    telephoneNumber?: string;
+    telephoneCountryCode?: number;
+    maidenName?: string;
+    birthday?: Date;
+    age?: number;
+    tropicalZodiac?: string;
+    ccType?: string;
+    ccNumber?: string;
+    cvv2?: string;
+    ccExpires?: string;
+    nationalId?: string;
+    upsTracking?: string;
+    westernUnionMtcn?: string;
+    moneygramMtcn?: string;
+    color?: string;
+    occupation?: string;
+    company?: string;
+    vehicle?: string;
+    domain?: string;
+    bloodType?: string;
+    pounds?: number;
+    kilograms?: number;
+    feetInches?: string;
+    centimeters?: number;
+    guid?: string;
+    latitude?: number;
+    longitude?: number;
+
+    [key: string]: any;
+}

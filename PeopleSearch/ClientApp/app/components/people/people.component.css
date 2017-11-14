@@ -1,0 +1,74 @@
+.tile {
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+     -ms-animation: fadein 2s; /* Internet Explorer */
+      -o-animation: fadein 2s; /* Opera < 12.1 */
+         animation: fadein 2s;
+}
+
+@keyframes fadein {
+ from { opacity: 0; }
+ to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+ from { opacity: 0; }
+ to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+ from { opacity: 0; }
+ to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+ from { opacity: 0; }
+ to   { opacity: 1; }
+}
+.tile img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+.page-navigation {
+    display: flex;
+    flex-flow: row;
+}
+.flex-expand {
+    flex: 1;
+}
+.centered {
+    text-align: center;
+}
+/* input[type='search'] {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 16px;
+} */
+/* .container, .row {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+} */
+.people-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+/* .title-bar > div {
+    margin: 0;
+    padding: 0;
+}*/
+.input-group {
+    margin-top: 20px;
+}
+.input-group > input.form-control {
+    margin-top: 1px !important;
+}

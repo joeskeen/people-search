@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PeopleSearch.Data;
+using Microsoft.EntityFrameworkCore;
+using PeopleSearch.Services;
 
 namespace PeopleSearch
 {
@@ -23,6 +26,8 @@ namespace PeopleSearch
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddDbContext<PeopleSearchContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PeopleSearch")));
+            services.AddTransient<IAvatarService, MonsterIdGravatarService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

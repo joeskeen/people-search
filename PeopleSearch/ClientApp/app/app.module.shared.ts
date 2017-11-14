@@ -1,34 +1,38 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
+import { PeopleComponent } from './components/people/people.component';
+import { PersonComponent } from './components/person/person.component';
+import { PeopleService } from './services/people.service';
+import { PlatformService } from './services/platform.service';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
-        HomeComponent
+        PersonComponent,
+        PeopleComponent
     ],
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
-            { path: '**', redirectTo: 'home' }
+            { path: '', redirectTo: 'people', pathMatch: 'full' },
+            { path: 'people/:id', component: PersonComponent },
+            { path: 'people', component: PeopleComponent },
+            { path: '**', redirectTo: 'people' }
         ])
+    ],
+    providers: [
+        PeopleService,
+        PlatformService
     ]
 })
 export class AppModuleShared {

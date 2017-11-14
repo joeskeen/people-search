@@ -1,0 +1,21 @@
+:host>div {
+    margin-top: 20px;
+}
+.name {
+    font-weight: bold;
+    font-size: 20px;
+}
+.stalker-zone .panel-heading {
+    cursor: pointer;
+}
+.avatar {
+    text-align: center;
+}
+.avatar img {
+    border-radius: 50%;
+    display: inline-block;
+}
+.key {
+    font-weight: bold;
+    font-style: italic;
+}

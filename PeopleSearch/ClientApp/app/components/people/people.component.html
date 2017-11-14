@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row title-bar">
+        <div class="col-xs-12 col-sm-6">
+            <h1>People</h1>
+        </div>
+        <div class="col-xs-12 col-sm-6 input-group input-group-lg">
+            <span class="input-group-addon glyphicon glyphicon-search"></span>
+            <input class="form-control" type="search" [formControl]="searchControl" placeholder="search for a person" />
+        </div>
+    </div>
+
+    <p *ngIf="!people">
+        <em>Loading...</em>
+    </p>
+
+    <div *ngIf="people" class="people-container row">
+        <div>
+            <span *ngIf="search">"{{search}}" </span>{{totalRecords | number}} search results</div>
+        <div class="tile" *ngFor="let person of people">
+            <a [routerLink]="['/people', person.id]">
+                <img [src]="person.avatarUrl" />
+                <br />
+                <span>{{person.givenName}} {{person.surname}}</span>
+            </a>
+        </div>
+        <ul class="pager">
+            <li class="previous" [class.disabled]="page &lt;= 0" (click)="previousPage()">
+                <a href="#">
+                    &larr; Previous
+                </a>
+            </li>
+            <li class="next" [class.disabled]="page + 1 === totalPages" (click)="nextPage()">
+                <a href="#">
+                    Next &rarr;
+                </a>
+            </li>
+        </ul>
+        <div class="page-navigation row">
+            <div class="col-xs-12 centered">
+                Page {{page + 1}} of {{totalPages}}
+            </div>
+        </div>
+    </div>
+</div>

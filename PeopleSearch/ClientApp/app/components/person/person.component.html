@@ -1,0 +1,132 @@
+<div *ngIf="person" class="container">
+    <div class="row">
+        <div class="avatar col-xs-12 col-sm-6">
+            <img [src]="person.avatarUrl" />
+            <h1>
+                {{person.title}} {{person.givenName}} {{person.middleInitial}} {{person.surname}}
+            </h1>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Residence</h3>
+                </div>
+                <div class="panel-body">
+                    {{person.streetAddress}}
+                    <br /> {{person.city}},
+                    <span [title]="person.stateFull">{{person.state}}</span> {{person.zipCode}},
+                    <span [title]="person.countryFull">{{person.country}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Contact Information</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="key">phone: </span>
+                            <a class="value" href="tel:+{{person.telephoneCountryCode}}{{person.telephoneNumber}}">
+                                +{{person.telephoneCountryCode}} {{person.telephoneNumber}}
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="key">email: </span>
+                            <a class="value" href="mailto:{{person.emailAddress}}">{{person.emailAddress}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">About</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="key">gender: </span>
+                            <span class="value">{{ person.gender }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="key">born: </span>
+                            <span class="value">{{ person.birthday | date }} ({{ person.age }} years ago)</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="key">zodiac: </span>
+                            <span class="value">{{ person.tropicalZodiac }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Faves</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="key">browser: </span>
+                            <span class="value">{{ browser }}</span>
+                        </li>
+                        <li class="list-group-item" *ngIf="device">
+                            <span class="key">device: </span>
+                            <span class="value">{{ device }}</span>
+                        </li>
+                        <li class="list-group-item" *ngIf="os">
+                            <span class="key">operating system: </span>
+                            <span class="value">{{ os }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="key">car: </span>
+                            <span class="value">{{ person.vehicle }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="key">color: </span>
+                            <span class="value" [title]="person.color" [style.color]="person.color">{{ person.color }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="panel panel-danger stalker-zone">
+                <div class="panel-heading" (click)="stalkerModeEnabled = !stalkerModeEnabled">
+                    <h3 class="panel-title"><i class="glyphicon glyphicon-warning-sign"></i> Stalker Zone</h3>
+                </div>
+                <div class="panel-body" *ngIf="stalkerModeEnabled">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="key">maiden name: </span><span class="value">{{person.maidenName}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="key">username: </span><span class="value">{{ person.username }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="key">password: </span><span class="value">{{ person.password }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="key">social security #: </span><span class="value">{{ person.nationalId }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="key">credit card: </span><span class="value">{{person.ccType}} {{person.ccNumber}}, expires {{person.ccExpires}}, CVV {{person.cvv2}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="key">blood type: </span><span class="value">{{ person.bloodtype }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="key">current position: </span><span class="value">{{ person.latitude }} / {{ person.longitude }}</span>
+                            <br />
+                            <iframe width="500" height="400" frameborder="0" [src]="mapUrl"></iframe>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
