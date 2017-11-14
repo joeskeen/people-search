@@ -9,10 +9,6 @@
         </div>
     </div>
 
-    <p *ngIf="!people">
-        <em>Loading...</em>
-    </p>
-
     <div *ngIf="people" class="people-container row">
         <div>
             <span *ngIf="search">"{{search}}" </span>{{totalRecords | number}} search results</div>
@@ -41,4 +37,10 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <input type="checkbox" [(ngModel)]="simulateSlowConnection" />
+        <span>simulate slow connection</span>
+    </div>
+
 </div>

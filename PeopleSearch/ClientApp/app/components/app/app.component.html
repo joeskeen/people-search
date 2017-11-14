@@ -12,3 +12,8 @@
         </div>
     </div>
 </div>
+<div class="loading-curtain" *ngIf="busyTracker.isBusy">
+    <div class="loading-icon-background">
+        <span class="glyphicon glyphicon-refresh spinning"></span> Loading...
+    </div>
+</div>

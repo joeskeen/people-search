@@ -33,6 +33,7 @@
  from { opacity: 0; }
  to   { opacity: 1; }
 }
+
 .tile img {
     border-radius: 50%;
     width: 150px;
@@ -48,24 +49,10 @@
 .centered {
     text-align: center;
 }
-/* input[type='search'] {
-    width: 100%;
-    margin-top: 20px;
-    font-size: 16px;
-} */
-/* .container, .row {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-} */
 .people-container {
     margin-left: auto;
     margin-right: auto;
 }
-/* .title-bar > div {
-    margin: 0;
-    padding: 0;
-}*/
 .input-group {
     margin-top: 20px;
 }

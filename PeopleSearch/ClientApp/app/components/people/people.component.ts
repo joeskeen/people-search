@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, OnChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PeopleService } from '../../services/people.service';
+import { BusyTracker } from '../../services/busy.service';
 import { Person } from '../../models/person';
 import 'rxjs/add/operator/debounceTime';
 
@@ -19,8 +20,9 @@ export class PeopleComponent implements OnInit {
     totalRecords = 0;
     searchControl = new FormControl();
     search = '';
+    simulateSlowConnection = false;
 
-    constructor(private peopleService: PeopleService) {
+    constructor(private peopleService: PeopleService, private busyTracker: BusyTracker) {
     }
 
     async ngOnInit() {
@@ -47,9 +49,18 @@ export class PeopleComponent implements OnInit {
     }
 
     async loadPeople() {
+        if (this.simulateSlowConnection)
+            await this.delay(3);
+            
         const results = await this.peopleService.search(this.page, this.pageSize, this.search);
         this.people = results.results;
         this.totalRecords = results.totalRecords;
         this.totalPages = Math.ceil(results.totalRecords / this.pageSize);
+    }
+
+    private async delay(seconds: number) {
+        const promise = new Promise(resolve => setTimeout(resolve, seconds * 1000))
+        this.busyTracker.track(promise);
+        return promise;
     }
 }

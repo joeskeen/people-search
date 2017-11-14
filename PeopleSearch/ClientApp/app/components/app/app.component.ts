@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BusyTracker } from '../../services/busy.service';
 
 @Component({
     selector: 'app',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+    constructor(public busyTracker: BusyTracker) {
+    }
 }
