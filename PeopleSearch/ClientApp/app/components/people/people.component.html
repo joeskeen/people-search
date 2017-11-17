@@ -31,7 +31,7 @@
                 </a>
             </li>
         </ul>
-        <div class="page-navigation row">
+        <div class="page-navigation row" *ngIf="people">
             <div class="col-xs-12 centered">
                 Page {{page + 1}} of {{totalPages}}
             </div>
