@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <div *ngIf="people" class="people-container row">
+    <div *ngIf="totalRecords" class="people-container row">
         <div>
             <span *ngIf="search">"{{search}}" </span>{{totalRecords | number}} search results</div>
         <div class="tile" *ngFor="let person of people">
@@ -31,11 +31,18 @@
                 </a>
             </li>
         </ul>
-        <div class="page-navigation row" *ngIf="people">
+        <div class="page-navigation row" *ngIf="totalRecords">
             <div class="col-xs-12 centered">
                 Page {{page + 1}} of {{totalPages}}
             </div>
         </div>
+    </div>
+
+    <div *ngIf="!busyTracker.isBusy && !totalRecords" class="centered">
+        <br />
+        <h2>Sorry</h2>
+        <h4>We don't know anyone by the name of "{{search}}".</h4>
+        <br />
     </div>
 
     <div class="row">

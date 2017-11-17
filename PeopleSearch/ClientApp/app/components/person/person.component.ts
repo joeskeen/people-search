@@ -29,10 +29,8 @@ export class PersonComponent implements OnInit {
     }
 
     async ngOnInit() {
-        console.log('onInit');
         this.route.params
             .subscribe(async (p: any) => {
-                console.log('params', p);
                 this.person = await this.peopleService.get(p.id);
             });
     }

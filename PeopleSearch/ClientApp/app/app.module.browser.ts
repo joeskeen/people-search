@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserStateTransferModule, DEFAULT_STATE_ID } from '@ngx-universal/state-transfer';
 import { AppModuleShared } from './app.module.shared';
 import { AppComponent } from './components/app/app.component';
 
 @NgModule({
     bootstrap: [ AppComponent ],
     imports: [
-        BrowserModule,
+        BrowserModule.withServerTransition({
+            appId: 'people-search-app'
+        }),
+        BrowserStateTransferModule.forRoot(),
         AppModuleShared
     ],
     providers: [
