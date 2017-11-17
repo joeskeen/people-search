@@ -16,10 +16,14 @@ The search functionality simply uses Entity Framework and Linq to build and exec
 
 I used ASP.NET CORE since that is the future of ASP.NET and Entity Framework, and because I haven't had an excuse to learn or use it yet and I wanted to get my feet wet using it.  Having come from earlier ASP.NET and EF versions, much was the same, but there were a few things that took some getting used to.
 
+The starter project I used includes Angular Universal with AOT compilation.  I ended up running into a few snags with this, including duplicate data loading, but luckily I got that all worked out!
+
 ### Things that didn't make it
 
 Realistically, it's impossible to completely exhaust the product backlog, and although I had delusions of grandeur regarding awesome features that could have made it into this app, I eventually had to resign to the reality that life is busy, and I had to work out a work-life balance that produced the best quality product without costing me my family.  Here's what didn't make it in the app:
 
+* saving the previous search when navigating back from a detail page
+* ordering results (should it be ABC order or most relevant to search)
 * Import people from VCF files (exported from other sources).  I actually found a really great NuGet package to do this, and played around with it in LinqPad.  It wouldn't be too hard to implement, but didn't have time to put it in and make sure it was rock solid with the timeframe I had.  Also, with the database being hosted in the cloud, I didn't want anyone to put real-life people data into the app in case it was compromised (as I didn't have time for a full security review of the app).
 * Export / Share a person as a VCF file.  This would have piggy-backed off of the previous feature, but in reverse.
 * "New Person" workflow. Other than the security implications discussed above, I wanted to make this available only if it were rock-solid.  With many fields of varying types and lengths, I would have needed to export metadata about each field to ensure proper input validation before attempting to insert a new record into the database (as the DB error messages are often not super useful).  I recently wrote a set of controls that would use the proper constraints and validations based on the underlying SQL Server data type for the column; unfortunately these are closed-source (for work), written in jQuery (since they don't believe in anything newer than 10 years old), and was quite time-consuming to develop and test.  I didn't think I would have enough time to get that right for this project.
